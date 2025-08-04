@@ -1,0 +1,56 @@
+# .dockerignore
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Logs
+log/*
+*.log
+
+# Temporary files
+tmp/*
+.tmp
+
+# Cache
+.cache
+.yarn-cache
+
+# Node modules (będą zainstalowane w kontenerze)
+node_modules
+
+# Build artifacts
+app/assets/builds/*
+public/assets/*
+public/packs/*
+
+# Development databases
+*.sqlite3
+*.sqlite3-journal
+
+# Environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+coverage
+
+# Test artifacts
+test/tmp
+spec/tmp

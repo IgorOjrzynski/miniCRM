@@ -1,0 +1,11 @@
+# plik: .env
+# Ten plik będzie automatycznie wczytany przez Docker Compose
+
+# Zmienne dla serwera bazy danych
+MYSQL_ROOT_PASSWORD=password
+MYSQL_DATABASE=mini_crm_development
+
+# Zmienne dla aplikacji Rails
+DB_HOST=db
+DB_USER=root
+DB_PASSWORD=password

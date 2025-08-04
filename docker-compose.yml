@@ -1,0 +1,42 @@
+services:
+  app:
+    build: .
+    command: ./bin/dev
+    volumes:
+      - .:/app
+      - node_modules_data:/app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: development
+      DB_HOST: db
+      DB_USER: mini_crm_user
+      DB_PASSWORD: super_secret_password
+
+  db:
+    image: mariadb:10.6
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mini_crm_development
+      MYSQL_USER: mini_crm_user
+      MYSQL_PASSWORD: super_secret_password
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma_mini_crm
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - "8081:80"
+
+volumes:
+  db_data:
+  node_modules_data:
